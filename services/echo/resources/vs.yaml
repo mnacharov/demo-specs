@@ -1,0 +1,14 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: echo-route
+spec:
+  gateways:
+    - istio-system/ingress-internal
+  hosts:
+    - echoserver.dev.p2p.org
+  http:
+    - route:
+        - destination:
+            host: echoserver
